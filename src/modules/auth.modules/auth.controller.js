@@ -43,7 +43,7 @@ authRouter.post(
   validate(authValidation.ResendCodeSchema),
   asyncHandler(resendCode(subject.login))
 );
-// authRouter.post("/loginWithGmail", asyncHandler(auth.loginWithGmail));
+authRouter.post("/loginWithGmail", asyncHandler(auth.loginWithGmail));
 
 authRouter.get("/refresh_token", asyncHandler(auth.refreshToken));
 
