@@ -3,6 +3,8 @@ import { fileTypeFromBuffer } from "file-type";
 
 export const filesValidation = {
   image: ["image/png", "image/jpeg", "image/jpg"],
+  audio: ["audio/mpeg", "audio/ogg", "audio/wav"],
+  video: ["video/mp4", "video/ogg", "video/webm"],
 };
 
 export const upload = multer({
