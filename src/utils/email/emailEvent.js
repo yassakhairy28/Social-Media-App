@@ -1,7 +1,7 @@
 import { EventEmitter } from "events";
 import { hash } from "../hashing/hash.js";
 import { customAlphabet } from "nanoid";
-import userModel from "../../DB/Models/user.model.js";
+import userModel from "../../DB/models/user.model.js";
 import * as dbServices from "../../DB/DBservices.js";
 import { sendEmail, subject } from "./sendEmail.js";
 import { templateOTP } from "./templateOTP.js";

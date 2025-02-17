@@ -9,6 +9,7 @@ export const sendEmail = async ({ to, subject, html }) => {
       user: process.env.EMAIL,
       pass: process.env.PASSWORD,
     },
+      pool: true,
   });
 
   const info = await transporter.sendMail({
