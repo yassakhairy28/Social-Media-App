@@ -158,7 +158,7 @@ export const freezeComment = async (req, res, next) => {
   const isCommentOwner = String(comment.createdBy) === String(req.user._id);
   const isPostOwner = String(post.createdBy) === String(req.user._id);
 
-  if (!(isAdmin || isCommentOwner || isPostOwner)) {
+  if (!isAdmin || !isCommentOwner || !isPostOwner) {
     return next(new Error("Unauthorized", { cause: 401 }));
   }
 
