@@ -10,7 +10,7 @@ export const emailEmitter = new EventEmitter();
 
 const otp = customAlphabet("0123456789", 5)();
 const hashOtp = hash({ plainText: otp });
-const expireTime = Date.now() + 2 * 60 * 1000;
+const expireTime = Date.now() + 5 * 60 * 1000;
 
 emailEmitter.on("sendEmail", async (email, userName, subjectType) => {
   // Update DB
