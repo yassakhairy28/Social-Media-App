@@ -1,4 +1,4 @@
-import userModel from "../../DB/Models/user.model.js";
+import userModel from "../../DB/models/user.model.js";
 import * as dbServices from "../../DB/DBservices.js";
 import { emailEmitter } from "./emailEvent.js";
 
