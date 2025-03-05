@@ -8,11 +8,11 @@ import { templateOTP } from "./templateOTP.js";
 
 export const emailEmitter = new EventEmitter();
 
-const otp = customAlphabet("0123456789", 5)();
-const hashOtp = hash({ plainText: otp });
-const expireTime = Date.now() + 5 * 60 * 1000;
-
 emailEmitter.on("sendEmail", async (email, userName, subjectType) => {
+  // Generate OTP
+  const otp = customAlphabet("0123456789", 5)();
+  const hashOtp = hash({ plainText: otp });
+  const expireTime = Date.now() + 5 * 60 * 1000;
   // Update DB
 
   await dbServices.updateOne({
@@ -34,9 +34,6 @@ emailEmitter.on("sendEmail", async (email, userName, subjectType) => {
     case subject.resetPassword:
       msg = "To reset your password, please enter the following OTP.";
       break;
-    case subject.updateEmail:
-      msg = "To update your email, please enter the following OTP.";
-      break;
     default:
       msg = "Here is your OTP code:";
   }
@@ -50,6 +47,11 @@ emailEmitter.on("sendEmail", async (email, userName, subjectType) => {
 });
 
 emailEmitter.on("updateEmail", async (id, email, userName) => {
+  // Generate OTP
+  const otp = customAlphabet("0123456789", 5)();
+  const hashOtp = hash({ plainText: otp });
+  const expireTime = Date.now() + 5 * 60 * 1000;
+  // Update DB
   const user = await dbServices.findByIdAndUpdate({
     model: userModel,
     filter: { _id: id },

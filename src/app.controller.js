@@ -9,6 +9,8 @@ import notFoundHandler from "./utils/error handling/notFoundHandler.js";
 import cors from "cors";
 import rateLimit from "express-rate-limit";
 import helmet from "helmet";
+import { createHandler } from "graphql-http/lib/use/express";
+import { schema } from './app.graphql.js';
 
 const limiter = rateLimit({
   windowMs: 10 * 60 * 1000, // 15 minutes
@@ -16,20 +18,23 @@ const limiter = rateLimit({
 });
 
 const bootstrap = async (app, express) => {
-  // security
+  // cors origin
+  app.use(cors());
+
+  // // security
   app.use(helmet());
 
   // limit request
   app.use(limiter);
 
+  // body parser
+  app.use(express.json());
+
   // database
   await connectDB();
 
-  // cors origin
-  app.use(cors());
-
-  // body parser
-  app.use(express.json());
+  // graphql
+  app.use("/graphql", createHandler({ schema }));
 
   app.get("/", (req, res) => {
     res.status(200).send("Welcome to Social Media App");
@@ -48,6 +53,6 @@ const bootstrap = async (app, express) => {
   app.use(globalErrorHandling);
 };
 
-export default bootstrap;
+// git commet -m"insert grahql"
 
-// update security with helmet and rate limit
+export default bootstrap;

@@ -1,5 +1,4 @@
 import mongoose, { Schema, Types, model } from "mongoose";
-import cloudinary from "../../utils/file uploading/cloudinaryConfig.js";
 import { hash } from "../../utils/hashing/hash.js";
 
 export const roleType = {
