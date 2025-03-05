@@ -4,7 +4,7 @@
 
 ## Project Description
 
-A web application that allows users to connect socially through features like creating posts, commenting, liking, and following other users.
+A backend service for a social media application that allows users to connect socially through features like creating posts, commenting, liking, and following other users.
 
 ## Main Features
 
@@ -15,11 +15,6 @@ A web application that allows users to connect socially through features like cr
 - **Notifications**: Users receive updates on interactions like comments, likes, and new followers.
 
 ## Technologies Used
-
-- **Frontend**:
-  - React.js
-  - Redux for state management
-  - Material-UI for UI design
 
 - **Backend**:
   - Node.js
@@ -58,7 +53,7 @@ A web application that allows users to connect socially through features like cr
    npm start
    ```
    
-   Then open your browser and navigate to `http://localhost:3000/`.
+   The backend service will start, ready to handle API requests.
 
 ## Contributions
 
@@ -74,6 +69,3 @@ We welcome contributions from the community. To contribute, follow these steps:
 3. **Make necessary changes**.
 4. **Push your changes to your branch**.
 5. **Create a Pull Request**.
-
-
-
